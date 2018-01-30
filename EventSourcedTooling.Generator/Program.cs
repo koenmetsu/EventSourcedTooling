@@ -53,7 +53,7 @@ namespace EventSourcedTooling.Generator
                 var className = item.Key;
                 var fields = item.Value;
 
-                builder.AppendLine($"\tpublic class {className}{{");
+                builder.AppendLine($"\tpublic struct {className}{{");
 
                 AppendConstructor(builder, className, fields);
                 AppendFields(fields, builder);

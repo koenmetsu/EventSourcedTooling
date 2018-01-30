@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace EventSourcedTooling {
-	public class PlaceOrder{
+	public struct PlaceOrder{
 public PlaceOrder(string CartId, string CustomerId, string OrderTime){
 this.CartId = CartId;
 this.CustomerId = CustomerId;
