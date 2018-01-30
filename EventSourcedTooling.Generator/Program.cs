@@ -10,10 +10,15 @@ namespace EventSourcedTooling.Generator
     {
         static void Main(string[] args)
         {
-            var defaultInputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\Events\";
-            var defaultOutputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\Generated\";
+            var defaultInputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\";
+            var defaultOutputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\";
 
-            foreach (var file in Directory.EnumerateFiles(defaultInputPath, "*.txt"))
+            foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Events"), "*.txt"))
+            {
+                GenerateClass(file, defaultOutputPath);
+            }
+
+            foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Commands"), "*.txt"))
             {
                 GenerateClass(file, defaultOutputPath);
             }
