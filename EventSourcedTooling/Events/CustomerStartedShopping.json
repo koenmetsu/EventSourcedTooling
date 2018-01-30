@@ -1,0 +1,6 @@
+﻿{
+    "CustomerStartedShopping": [
+        "CustomerId",
+        "CartId"
+    ]
+}

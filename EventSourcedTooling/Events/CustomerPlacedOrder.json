@@ -1,0 +1,15 @@
+﻿{
+    "CustomerPlacedOrder": [
+        "CustomerId",
+        "CartId",
+        {
+            "Products:List": [
+                "SKU",
+                "Quantity",
+                "PriceInCents",
+                "Currency"
+            ]
+        },
+        "OrderedAt"
+    ]
+}

@@ -1,0 +1,4 @@
+﻿RemoveProductFromCart
+	CartId
+	SKU
+	RemoveTime

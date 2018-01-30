@@ -1,0 +1,4 @@
+﻿StartShopping
+    CustomerId
+    CartId
+    StartTime
