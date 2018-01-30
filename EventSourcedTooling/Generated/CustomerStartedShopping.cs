@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace EventSourcedTooling
 {
-    public class CustomerStartedShopping
+    public class CustomerStartedShopping : IEvent
     {
         public CustomerStartedShopping(string CustomerId, string CartId)
         {
