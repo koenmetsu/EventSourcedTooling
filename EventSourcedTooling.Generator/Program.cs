@@ -10,8 +10,10 @@ namespace EventSourcedTooling.Generator
     {
         static void Main(string[] args)
         {
-            var defaultInputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\";
-            var defaultOutputPath = @"C:\Users\Koen\source\repos\EventSourcedTooling\EventSourcedTooling\";
+            if(args.Length < 2) throw new ArgumentException();
+            
+            var defaultInputPath = args[0];
+            var defaultOutputPath = args[1];
 
             foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Events"), "*.txt"))
             {
@@ -79,7 +81,7 @@ namespace EventSourcedTooling.Generator
                 }
                 else
                 {
-                    builder.AppendLine("\t\tpublic string " + field + " { get; set; }");
+                    builder.AppendLine("\t\tpublic string " + field + " { get; private set; }");
                 }
             }
         }
