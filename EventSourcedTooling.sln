@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcedTooling", "EventSourcedTooling\EventSourcedTooling.csproj", "{D339DADF-8712-44C0-98C2-5EB82FCE4632}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcedTooling.Tests", "EventSourcedTooling.Tests\EventSourcedTooling.Tests.csproj", "{69BE5E08-8842-4EE5-A76C-A94C5533EC36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D339DADF-8712-44C0-98C2-5EB82FCE4632}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D339DADF-8712-44C0-98C2-5EB82FCE4632}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D339DADF-8712-44C0-98C2-5EB82FCE4632}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69BE5E08-8842-4EE5-A76C-A94C5533EC36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69BE5E08-8842-4EE5-A76C-A94C5533EC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69BE5E08-8842-4EE5-A76C-A94C5533EC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69BE5E08-8842-4EE5-A76C-A94C5533EC36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
