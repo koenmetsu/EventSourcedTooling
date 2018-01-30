@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace EventSourcedTooling {
-	public struct CustomerAbandonedCart{
+	public struct CustomerAbandonedCart : IEvent {
 public CustomerAbandonedCart(string CustomerId, string CartId){
 this.CustomerId = CustomerId;
 this.CartId = CartId;

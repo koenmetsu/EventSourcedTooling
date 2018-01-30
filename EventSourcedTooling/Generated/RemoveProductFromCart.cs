@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace EventSourcedTooling {
-	public struct RemoveProductFromCart{
+	public struct RemoveProductFromCart : ICommand {
 public RemoveProductFromCart(string CartId, string SKU, string RemoveTime){
 this.CartId = CartId;
 this.SKU = SKU;

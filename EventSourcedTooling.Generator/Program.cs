@@ -65,7 +65,7 @@ namespace EventSourcedTooling.Generator
 
             var outputFile = builder.ToString();
 
-            File.WriteAllText(defaultOutputPath + dictionary.Keys.First() + ".cs", outputFile);
+            File.WriteAllText(Path.Combine(defaultOutputPath, "Generated", dictionary.Keys.First() + ".cs"), outputFile);
         }
 
         private static void AppendFields(List<string> fields, StringBuilder builder)

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace EventSourcedTooling {
-	public struct CustomerPlacedOrder{
+	public struct CustomerPlacedOrder : IEvent {
 public CustomerPlacedOrder(string CustomerId, string CartId, List<Product> Products, string OrderedAt){
 this.CustomerId = CustomerId;
 this.CartId = CartId;
@@ -13,7 +13,7 @@ this.OrderedAt = OrderedAt;
 		public List<Product> Products { get; set; }
 		public string OrderedAt { get; set; }
 	}
-	public struct Product{
+	public struct Product : IEvent {
 public Product(string SKU, string Quantity, string PriceInCents, string Currency){
 this.SKU = SKU;
 this.Quantity = Quantity;
