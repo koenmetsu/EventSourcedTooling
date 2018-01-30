@@ -39,6 +39,17 @@ namespace EventSourcedTooling.Tests
                 .When(new PlaceOrder("cartId", "customerId", "orderTime"))
                 .Then(new CustomerPlacedOrder("customerId", "cartId", new List<Product>(), "orderTime"));
         }
+        
+        [Fact]
+        public void PlaceOneProductOrder()
+        {
+            new AggregateAsserter<PlaceOrder>(new ShoppingCartAggregate())
+                .Given(
+                    new CustomerStartedShopping("customerId", "cartId"), 
+                    new ProductWasAddedToCart("customerId", "cartId", "SKU", "price", "addTime"))
+                .When(new PlaceOrder("cartId", "customerId", "orderTime"))
+                .Then(new CustomerPlacedOrder("customerId", "cartId", new List<Product>{new Product("SKU", "1", "price", "currency")}, "orderTime"));
+        }
 
     }
 
