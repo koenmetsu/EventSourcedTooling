@@ -18,7 +18,7 @@ namespace EventSourcedTooling.Tests
             new EventAsserter<StartShopping>(new CustomerStartedShoppingHandler())
                 .Given(new CustomerStartedShopping("customerId", "cartId"))
                 .When(new StartShopping("customerId", "cartId", "startTime"))
-                .Then(new ProductWasAddedToCart());
+                .Then(new ProductWasAddedToCart("", "","", "", ""));
         }
     }
 
