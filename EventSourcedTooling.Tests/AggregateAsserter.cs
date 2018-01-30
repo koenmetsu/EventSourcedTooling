@@ -4,7 +4,7 @@ namespace EventSourcedTooling.Tests
 {
     public interface IEventAsserter
     {
-        void Then(IEvent @event);
+        void Then(IEvent expectedEvent);
     }
 
     public interface ITestCommandExecutor<TCommand> where TCommand: ICommand
@@ -15,8 +15,8 @@ namespace EventSourcedTooling.Tests
     public class AggregateAsserter<TCommand> : IEventAsserter, ITestCommandExecutor<TCommand> where TCommand : ICommand
     {
         private readonly ICommandHandler<TCommand> handler;
-        private IEvent _event;
         private IEvent[] given;
+        private TCommand command;
 
         public AggregateAsserter(ICommandHandler<TCommand> handler)
         {
@@ -31,13 +31,29 @@ namespace EventSourcedTooling.Tests
 
         public IEventAsserter When(TCommand command)
         {
-            _event = handler.Handle(command);
+            this.command = command;
             return this;
         }
 
-        public void Then(IEvent @event)
+        public void Then(IEvent expectedEvent)
         {
-            Assert.Equal(@event, _event);
+            new HtmlReporter(given, command, expectedEvent).Report();
+
+            var actualEvent = handler.Handle(command);
+            Assert.Equal(expectedEvent, actualEvent);
+        }
+    }
+
+    public class HtmlReporter
+    {
+        public HtmlReporter(IEvent[] history, ICommand command, IEvent expectedEvent)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Report()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
