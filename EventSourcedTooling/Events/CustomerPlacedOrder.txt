@@ -1,0 +1,10 @@
+﻿CustomerPlacedOrder
+    CustomerId
+    CartId
+    List:Products
+    OrderedAt
+Product
+    SKU
+    Quantity
+    PriceInCents
+    Currency
