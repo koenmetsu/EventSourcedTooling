@@ -7,8 +7,8 @@ this.CartId = CartId;
 this.CustomerId = CustomerId;
 this.OrderTime = OrderTime;
 }
-		public string CartId { get; set; }
-		public string CustomerId { get; set; }
-		public string OrderTime { get; set; }
+		public string CartId { get; private set; }
+		public string CustomerId { get; private set; }
+		public string OrderTime { get; private set; }
 	}
 }

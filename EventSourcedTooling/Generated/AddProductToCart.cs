@@ -8,9 +8,9 @@ this.SKU = SKU;
 this.Price = Price;
 this.AddTime = AddTime;
 }
-		public string CartId { get; set; }
-		public string SKU { get; set; }
-		public string Price { get; set; }
-		public string AddTime { get; set; }
+		public string CartId { get; private set; }
+		public string SKU { get; private set; }
+		public string Price { get; private set; }
+		public string AddTime { get; private set; }
 	}
 }
