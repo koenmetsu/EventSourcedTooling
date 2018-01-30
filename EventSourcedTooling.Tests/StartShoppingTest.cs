@@ -8,8 +8,8 @@ namespace EventSourcedTooling.Tests
         public void CustomerStartedShoppingWhenStartShopping()
         {
             new EventAsserter<StartShopping>(new CustomerStartedShoppingHandler())
-                .When(new StartShopping("", "", ""))
-                .Then(new CustomerStartedShopping("", ""));
+                .When(new StartShopping("customerId", "cartId", "startTime"))
+                .Then(new CustomerStartedShopping("customerId", "cartId"));
         }
     }
 
