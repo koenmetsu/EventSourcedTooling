@@ -13,4 +13,9 @@
   <ItemGroup>
     <ProjectReference Include="..\EventSourcedTooling\EventSourcedTooling.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Update="template.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
