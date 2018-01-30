@@ -2,6 +2,6 @@
 {
     public interface ICommandHandler<TCommand>
     {
-        IEvent Handle(TCommand command);
+        object Handle(TCommand command);
     }
 }
