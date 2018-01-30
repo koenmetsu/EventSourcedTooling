@@ -1,8 +1,6 @@
-﻿using System.Threading;
-
-namespace EventSourcedTooling
+﻿namespace EventSourcedTooling
 {
-    public class ShoppingCartAggregate : ICommandHandler<StartShopping>, ICommandHandler<AddProductToCart>
+    public class ShoppingCartAggregate : ICommandHandler<StartShopping>, ICommandHandler<AddProductToCart>, ICommandHandler<PlaceOrder>
     {
         public object Handle(StartShopping command)
         {
@@ -11,7 +9,12 @@ namespace EventSourcedTooling
 
         public object Handle(AddProductToCart command)
         {
-            throw new AbandonedMutexException();
+            throw new System.NotImplementedException();
+        }
+
+        public object Handle(PlaceOrder command)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
