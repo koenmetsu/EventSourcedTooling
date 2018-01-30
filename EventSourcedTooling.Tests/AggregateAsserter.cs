@@ -46,9 +46,15 @@ namespace EventSourcedTooling.Tests
 
     public class HtmlReporter
     {
+        private readonly IEvent[] _history;
+        private readonly ICommand _command;
+        private readonly IEvent _expectedEvent;
+
         public HtmlReporter(IEvent[] history, ICommand command, IEvent expectedEvent)
         {
-            throw new System.NotImplementedException();
+            _history = history;
+            _command = command;
+            _expectedEvent = expectedEvent;
         }
 
         public void Report()
