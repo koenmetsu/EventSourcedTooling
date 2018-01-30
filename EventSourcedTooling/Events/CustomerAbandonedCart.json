@@ -1,6 +1,0 @@
-﻿{
-    "CustomerAbandonedCart": [
-        "CustomerId",
-        "CartId"
-    ]
-}

@@ -1,8 +1,0 @@
-﻿{
-    "ProductWasRemovedFromCart": [
-        "CustomerId",
-        "CartId",
-        "SKU",
-        "RemovedAt"
-    ]
-}

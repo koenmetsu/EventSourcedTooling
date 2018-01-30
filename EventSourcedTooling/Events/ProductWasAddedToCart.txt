@@ -1,0 +1,6 @@
+ProductWasAddedToCart
+    CustomerId
+    CartId
+    SKU
+    Price
+    AddedAt

@@ -1,4 +1,4 @@
-﻿CustomerPlacedOrder
+CustomerPlacedOrder
     CustomerId
     CartId
     List:Products
