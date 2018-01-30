@@ -17,12 +17,12 @@ namespace EventSourcedTooling.Generator
 
             foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Events"), "*.txt"))
             {
-                GenerateClass(file, defaultOutputPath, typeof(IEvent).Name);
+                GenerateClass(file, defaultOutputPath, "IEvent");
             }
 
             foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Commands"), "*.txt"))
             {
-                GenerateClass(file, defaultOutputPath, typeof(ICommand).Name);
+                GenerateClass(file, defaultOutputPath, "ICommand");
             }
         }
 
