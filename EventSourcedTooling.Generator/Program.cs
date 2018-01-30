@@ -15,16 +15,16 @@ namespace EventSourcedTooling.Generator
 
             foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Events"), "*.txt"))
             {
-                GenerateClass(file, defaultOutputPath);
+                GenerateClass(file, defaultOutputPath, typeof(IEvent).Name);
             }
 
             foreach (var file in Directory.EnumerateFiles(Path.Combine(defaultInputPath, "Commands"), "*.txt"))
             {
-                GenerateClass(file, defaultOutputPath);
+                GenerateClass(file, defaultOutputPath, typeof(ICommand).Name);
             }
         }
 
-        private static void GenerateClass(string inputFile, string defaultOutputPath)
+        private static void GenerateClass(string inputFile, string defaultOutputPath, string markerInterface)
         {
             var lines = File.ReadAllLines(inputFile);
 
@@ -53,7 +53,7 @@ namespace EventSourcedTooling.Generator
                 var className = item.Key;
                 var fields = item.Value;
 
-                builder.AppendLine($"\tpublic struct {className}{{");
+                builder.AppendLine($"\tpublic struct {className} : {markerInterface} {{");
 
                 AppendConstructor(builder, className, fields);
                 AppendFields(fields, builder);
