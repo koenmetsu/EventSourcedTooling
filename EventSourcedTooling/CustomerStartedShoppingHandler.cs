@@ -4,8 +4,7 @@
     {
         public object Handle(StartShopping command)
         {
-            //return new CustomerStartedShopping(command.CustomerId, command.CartId);
-            return null;
+            return new CustomerStartedShopping(command.CustomerId, command.CartId);
         }
     }
 }
