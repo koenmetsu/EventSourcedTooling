@@ -2,12 +2,12 @@
 
 namespace EventSourcedTooling.Tests
 {
-    public class StartShoppingTest
+    public class ShoppingCartTests
     {
         [Fact]
         public void CustomerStartedShoppingWhenStartShopping()
         {
-            new EventAsserter<StartShopping>(new CustomerStartedShoppingHandler())
+            new AggregateAsserter<StartShopping>(new ShoppingCartAggregate())
                 .When(new StartShopping("customerId", "cartId", "startTime"))
                 .Then(new CustomerStartedShopping("customerId", "cartId"));
         }
@@ -15,10 +15,10 @@ namespace EventSourcedTooling.Tests
         [Fact]
         public void CustomerStartedShoppingWhenStartBlahShopping()
         {
-            new EventAsserter<StartShopping>(new CustomerStartedShoppingHandler())
+            new AggregateAsserter<AddProductToCart>(new ShoppingCartAggregate())
                 .Given(new CustomerStartedShopping("customerId", "cartId"))
-                .When(new StartShopping("customerId", "cartId", "startTime"))
-                .Then(new ProductWasAddedToCart("", "","", "", ""));
+                .When(new AddProductToCart("cartId", "SKU", "price", "addTime"))
+                .Then(new ProductWasAddedToCart("customerId", "cartId", "SKU", "price", "addTime"));
         }
     }
 

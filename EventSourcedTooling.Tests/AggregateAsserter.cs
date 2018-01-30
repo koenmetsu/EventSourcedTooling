@@ -7,13 +7,13 @@ namespace EventSourcedTooling.Tests
         void Then(object @event);
     }
 
-    public class EventAsserter<TCommand> : IEventAsserter, ITestCommandExecutor<TCommand>
+    public class AggregateAsserter<TCommand> : IEventAsserter, ITestCommandExecutor<TCommand>
     {
         private readonly ICommandHandler<TCommand> handler;
         private object _event;
         private object given;
 
-        public EventAsserter(ICommandHandler<TCommand> handler)
+        public AggregateAsserter(ICommandHandler<TCommand> handler)
         {
             this.handler = handler;
         }
