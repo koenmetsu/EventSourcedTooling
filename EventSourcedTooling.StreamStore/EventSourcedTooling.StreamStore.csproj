@@ -1,16 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="SqlStreamStore" Version="1.1.1" />
   </ItemGroup>
-
-	<PropertyGroup>
-		<LangVersion>latest</LangVersion>
-	</PropertyGroup>
-
+  <ItemGroup>
+    <ProjectReference Include="..\EventSourcedTooling\EventSourcedTooling.csproj">
+      <Project>{D339DADF-8712-44C0-98C2-5EB82FCE4632}</Project>
+      <Name>EventSourcedTooling</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
 </Project>

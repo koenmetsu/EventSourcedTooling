@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="SqlStreamStore" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SqlStreamStore, Version=1.1.1.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\.nuget\packages\sqlstreamstore\1.1.1\lib\netstandard2.0\SqlStreamStore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventSourcedTooling\EventSourcedTooling.csproj">
+      <Project>{D339DADF-8712-44C0-98C2-5EB82FCE4632}</Project>
+      <Name>EventSourcedTooling</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

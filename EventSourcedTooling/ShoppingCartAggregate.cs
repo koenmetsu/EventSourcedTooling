@@ -9,7 +9,7 @@
 
         public IEvent Handle(AddProductToCart command)
         {
-            throw new System.NotImplementedException();
+            return new ProductWasAddedToCart("customerId", command.CartId, command.SKU, command.Price, command.AddTime);
         }
 
         public IEvent Handle(PlaceOrder command)

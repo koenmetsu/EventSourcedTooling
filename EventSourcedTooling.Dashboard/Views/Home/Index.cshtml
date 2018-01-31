@@ -1,0 +1,10 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(x => item.json)
+}

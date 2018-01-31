@@ -13,4 +13,6 @@ this.AddTime = AddTime;
 		public string Price { get; private set; }
 		public string AddTime { get; private set; }
 	}
+	
+	
 }

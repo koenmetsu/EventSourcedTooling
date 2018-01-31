@@ -17,7 +17,7 @@ namespace EventSourcedTooling.Tests
         [Fact]
         public void AddPoductToCart()
         {
-            new Specification<AddProductToCart>(new ShoppingCartAggregate())
+            new Specification<AddProductToCart>(new AddProductToCartHandler())
                 .Given(new CustomerStartedShopping("customerId", "cartId"))
                 .When(new AddProductToCart("cartId", "SKU", "price", "addTime"))
                 .Then(new ProductWasAddedToCart("customerId", "cartId", "SKU", "price", "addTime"));
