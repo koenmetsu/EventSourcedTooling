@@ -23,24 +23,38 @@ namespace EventSourcedTooling.Dashboard.Controllers
     {
         private InMemoryStreamStore inMemoryStreamStore;
 
-        public async Task<IActionResult> Index()
+        public HomeController()
         {
             inMemoryStreamStore = new InMemoryStreamStore(() => DateTime.UtcNow);
 
-            var customerId = "CUST-58";
+            var customer1 = "CUST-58";
             var cartId = "CART-2459";
-            await NewMethod(new CustomerStartedShopping(customerId, cartId), customerId);
-            await NewMethod(new ProductWasAddedToCart(customerId, cartId, "SKU-876", "56", "now"), customerId);
-            await NewMethod(new ProductWasAddedToCart(customerId, cartId, "SKU-3", "9", "now"), customerId);
-            await NewMethod(new CustomerPlacedOrder(customerId, cartId, new List<Product>(), "now"), customerId);
+            NewMethod(new CustomerStartedShopping(customer1, cartId), customer1);
+            NewMethod(new ProductWasAddedToCart(customer1, cartId, "SKU-876", "56", "now"), customer1);
+            NewMethod(new ProductWasAddedToCart(customer1, cartId, "SKU-3", "9", "now"), customer1);
+            NewMethod(new CustomerPlacedOrder(customer1, cartId, new List<Product>(), "now"), customer1);
 
-            var readAllForwards = await inMemoryStreamStore.ReadAllForwards(Position.Start, Int32.MaxValue, true, CancellationToken.None);
+            var customer2 = "CUST-34";
+            NewMethod(new CustomerStartedShopping(customer2, cartId), customer2);
+            NewMethod(new ProductWasAddedToCart(customer2, cartId, "SKU-876", "56", "now"), customer2);
+            NewMethod(new ProductWasAddedToCart(customer2, cartId, "SKU-3", "9", "now"), customer2);
+            NewMethod(new CustomerPlacedOrder(customer2, cartId, new List<Product>(), "now"), customer2);
+        }
 
-            // readAllForwards.Messages.ToList().ForEach(async message => Console.WriteLine($"{message.Type}: {await message.GetJsonData()}"));
-            // readAllForwards.Messages.ToList().Select(async message => message);
-
-            var enumerable = readAllForwards.Messages.Select(x => new Message {Body = x.GetJsonData().Result, Type = x.Type});
-            ViewData["Messages"] = enumerable;
+        public async Task<IActionResult> Index(string streamId)
+        {
+            StreamMessage[] messages;
+            if (string.IsNullOrEmpty(streamId))
+            {
+                messages = inMemoryStreamStore.ReadAllForwards(Position.Start, Int32.MaxValue, true, CancellationToken.None).Result.Messages;
+            }
+            else
+            {
+                messages = inMemoryStreamStore.ReadStreamForwards(new StreamId(streamId), 0, int.MaxValue).Result.Messages;
+                
+            }
+            
+            var enumerable = messages.Select(x => new Message {Body = x.GetJsonData().Result, Type = x.Type});
 
             return View(enumerable);
         }
