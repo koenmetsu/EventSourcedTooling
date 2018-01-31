@@ -16,13 +16,13 @@ namespace EventSourcedTooling.Tests
         IEventAsserter When(TCommand command);
     }
 
-    public class AggregateAsserter<TCommand> : IEventAsserter, ITestCommandExecutor<TCommand> where TCommand : ICommand
+    public class Specification<TCommand> : IEventAsserter, ITestCommandExecutor<TCommand> where TCommand : ICommand
     {
         private readonly ICommandHandler<TCommand> handler;
         private IEvent[] given;
         private TCommand command;
 
-        public AggregateAsserter(ICommandHandler<TCommand> handler)
+        public Specification(ICommandHandler<TCommand> handler)
         {
             this.handler = handler;
         }
