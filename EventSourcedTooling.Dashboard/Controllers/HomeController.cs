@@ -13,6 +13,12 @@ using StreamStoreStore.Json;
 
 namespace EventSourcedTooling.Dashboard.Controllers
 {
+    public class Message
+    {
+        public string Type { get; set; }
+        public string Body { get; set; }
+    }
+
     public class HomeController : Controller
     {
         private InMemoryStreamStore inMemoryStreamStore;
@@ -33,7 +39,7 @@ namespace EventSourcedTooling.Dashboard.Controllers
             // readAllForwards.Messages.ToList().ForEach(async message => Console.WriteLine($"{message.Type}: {await message.GetJsonData()}"));
             // readAllForwards.Messages.ToList().Select(async message => message);
 
-            var enumerable = readAllForwards.Messages.Select(x => new {json = x.GetJsonData(), type= x.Type});
+            var enumerable = readAllForwards.Messages.Select(x => new Message {Body = x.GetJsonData().Result, Type = x.Type});
             ViewData["Messages"] = enumerable;
 
             return View(enumerable);

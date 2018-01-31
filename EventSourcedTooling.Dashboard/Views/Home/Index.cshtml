@@ -1,4 +1,4 @@
-﻿@model IEnumerable<dynamic>
+﻿@model IEnumerable<EventSourcedTooling.Dashboard.Controllers.Message>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -6,5 +6,10 @@
 
 @foreach (var item in Model)
 {
-    @Html.DisplayFor(x => item.json)
+    <h2>
+        @Html.DisplayFor(x => item.Type)
+    </h2>
+    <div>
+        @Html.DisplayFor(x => item.Body)
+    </div>
 }
